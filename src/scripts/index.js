@@ -226,3 +226,26 @@ startCar(123);
 
 
 // Block Scope
+let message = 'Outside';
+if (5 === 5) { 
+    let message = "Equal";
+    console.log(message);
+}
+console.log(message);
+
+
+// IIFE
+// Immediately Invoked Function Expression
+
+// this function does not have a name and is invoked as soon as it is created
+(function() {
+    console.log("in function");
+})();
+
+let app = (function() {
+    let cardId = 123;
+    console.log('in function');
+    return {};
+})();
+
+console.log(app);
