@@ -287,3 +287,46 @@ let o = {
 
 console.log( o.getId() ); // 123
 
+
+
+// call and apply
+
+// call
+// call changes what 'this' is reffering to
+o = {
+    carId: 123,
+    getId: function() {
+        console.log(this);
+        return this.carId;
+    }
+};
+
+let newCar = { carId: 456};
+
+console.log( o.getId.call(newCar) );
+
+// apply
+// same as call, only it can pass parameters
+o = {
+    carId: 123,
+    getId: function(prefix) {
+        return prefix + this.carId;
+    }
+};
+console.log( o.getId.apply(newCar, ['ID: ']) );
+
+
+
+// bind
+// copies function, and assigns something else to 'this'
+o = {
+    carId: 123,
+    getId: function() {
+        console.log(this);
+        return this.carId;
+    }
+};
+
+newCar = { carId: 456 };
+let newFn = o.getId.bind(newCar);  // makes copy and 'this' becomes newCar
+console.log( newFn() );    // 456
