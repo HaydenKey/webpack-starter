@@ -237,6 +237,7 @@ console.log(message);
 // IIFE
 // Immediately Invoked Function Expression
 
+// is useful as a closure
 // this function does not have a name and is invoked as soon as it is created
 (function() {
     console.log("in function");
@@ -249,3 +250,40 @@ let app = (function() {
 })();
 
 console.log(app);
+
+
+
+// Closures
+// Use this when variables need to be upgraded to last outside of their original scope
+
+app = (function() {
+    let carId = 123;
+    let getId = function() {
+        return carId;
+    };
+    return {
+        getId: getId
+    };
+})();
+console.log( app.getId() );
+
+
+
+// The 'this' keyword
+let fn = function() {
+    console.log(this === window);
+};
+
+fn(); // true
+
+
+let o = {
+    carId: 123,
+    getId: function() {
+        console.log(this);
+        return this.carId;
+    }
+};
+
+console.log( o.getId() ); // 123
+
