@@ -1,7 +1,20 @@
 
+/*
+* Hayden Key
+*
+*JavaScript Fundamentals
+* 
+* The following is my attempt to copy, manipulate, and just mess around with 
+* the exercises in Mark Zamoyta's "JavaSciprt Fundamentals" course on PluralSight
+* 
+* I was unsure how to add multiple files and have them execute on this web server,
+* so I just put all of the exercises in a single file.
+*/
+
+
 // Hello, World!
 
-// console.log("Hello World!");
+console.log("Hello World!");
 
 
 
@@ -330,3 +343,26 @@ o = {
 newCar = { carId: 456 };
 let newFn = o.getId.bind(newCar);  // makes copy and 'this' becomes newCar
 console.log( newFn() );    // 456
+
+
+
+// Arrow Functions
+
+let getId = () => 123; // brackets just mean no parameters
+
+console.log( getId() ); //123
+
+
+getId = prefix => prefix + 123;
+console.log( getId('ID: ') );
+
+// if function has more than one parameter, parenthesis is needed
+getId = (prefix, suffix) => prefix + 123 + suffix;
+console.log( getId('ID: ', '!') );
+
+// if more complex logic is needed:
+getId = (prefix, suffix) => {
+    return prefix + 123 + suffix;
+};
+
+console.log()

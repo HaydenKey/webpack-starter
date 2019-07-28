@@ -1,3 +1,11 @@
+# JavaScript Fundamentals by Hayden Key
+ 
+The following is my attempt to copy, manipulate, and just mess around with the exercises in Mark Zamoyta's "JavaSciprt Fundamentals" course on PluralSight
+ 
+I was unsure how to add multiple files and have them execute on this web server, so I just put all of the exercises in a single file.
+
+
+
 # Webpack Frontend Starterkit
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/wbkd/webpack-starter.svg)](https://greenkeeper.io/)
