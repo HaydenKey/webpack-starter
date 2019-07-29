@@ -1,4 +1,3 @@
-
 /*
 * Hayden Key
 *
@@ -347,6 +346,7 @@ console.log( newFn() );    // 456
 
 
 // Arrow Functions
+// they do not have "this" variables
 
 let getId = () => 123; // brackets just mean no parameters
 
@@ -365,4 +365,165 @@ getId = (prefix, suffix) => {
     return prefix + 123 + suffix;
 };
 
-console.log()
+console.log( getId('ID: ', '!') );
+
+
+
+// Default Parameters
+let trackCar = function(carId, city='NY') {
+    console.log('Tracking ' + carId + ' in ' + city + '.');
+};
+
+console.log( trackCar(123) );    
+// Tracking 123 in NY.
+console.log( trackCar('123', 'Chicago') );
+// Tracking 123 in Chicago.
+
+
+
+
+/*
+* Objects and Arrays
+*/
+
+// Constructor Functions
+function Car(id) {
+    this.carId = id;
+    this.start = function() {
+        // must add "this" to attributes of object to reference them
+        console.log("start: " + this.carId);
+    };
+}
+
+car = new Car(123);
+car.start();
+
+
+
+// Prototypes
+
+// Without Prototypes
+// if we make a million car objects, we will have to make a million copies of
+// the start function, so we will use prototypes
+// function Car(id) {
+//     this.carId = id;
+//     this.start = function() {
+//         console.log('start: ' + this.carId);
+//     };
+// }
+
+// car = new Car(123);
+// car.start();  // start: 123
+
+// Prototypes
+// Makes it so that you can 
+function CarConstructor(id) {
+    this.carId = id;
+}
+
+CarConstructor.prototype.start = function() {
+    console.log('start: ' + this.carId);
+};
+
+car = new CarConstructor(123);
+car.start();   // start: 123
+
+
+
+// Expanding Objects Using Prototypes
+String.prototype.hello = function() {
+    return this.toString() + ' Hello';
+};
+
+console.log('foo'.hello());    // foo Hello
+
+
+
+// JSON - JavaScript Object Notation
+// Used to send JavaScript Objects over the wire
+// car = {
+//     id: 123,
+//     style: 'convertible'
+// };
+
+console.log( JSON.stringify(car) );
+//  {"id":123, "style":"convertible"}
+
+
+carIds = [
+    { carId: 123 },
+    { carId: 456 },
+    { carId: 798 }
+];
+console.log( JSON.stringify(carIds) );
+
+let jsonIn = 
+`
+    [
+        {"carId": 123},
+        {"carId": 456},
+        {"carId": 798}
+    ]
+`;
+
+carIds = JSON.parse(jsonIn);
+console.log( carIds );
+console.log( JSON.stringify(carIds) );
+
+
+
+// Array Iteration
+carIds = [
+    { carId: 123, style: 'sedan' },
+    { carId: 456, style: 'convertible'  },
+    { carId: 789, style: 'sedan'  }
+];
+
+carIds.forEach( car => console.log( car ) );
+
+carIds.forEach((car, index) => console.log( car, index ));
+
+// Array Filtering
+let convertibles = carIds.filter(
+    car => car.style == 'convertible'
+);
+
+console.log(convertibles);
+
+// Array Testing
+// Confirms if every element has a carId
+let result = carIds.every(
+    car => car.carId > 0
+);
+
+console.log(result);
+
+// Find a result
+car = carIds.find(
+    car => car.carId > 500
+);
+
+console.log(car);
+
+
+
+
+
+/*
+*
+* Classes and Modules
+* 
+*/
+
+class Car {
+    constructor(id) {
+        this.id = id;
+    }
+    identify() {
+        return 'Car ID: ' + this.id;
+    }
+}
+
+car = new Car(123);
+console.log( car.identify() );    // Car Id: 123
+
