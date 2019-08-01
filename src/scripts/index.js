@@ -365,4 +365,5 @@ getId = (prefix, suffix) => {
     return prefix + 123 + suffix;
 };
 
-console.log()
+console.log( getId('ID: ', '!') );
+
