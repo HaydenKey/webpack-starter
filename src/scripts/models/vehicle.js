@@ -1,5 +1,5 @@
 // Inheritance
-class Vehicle {
+export class Vehicle {
     constructor() {
         this.type = 'car';
     }

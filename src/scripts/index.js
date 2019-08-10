@@ -10,6 +10,8 @@
 * so I just put all of the exercises in a single file.
 */
 
+import { Car } from './models/car.js';
+import { Vehicle } from './models/vehicle.js';
 
 // Hello, World!
 
@@ -527,10 +529,51 @@ console.log(car);
 // car = new Car(123);
 // console.log( car.identify('!!!') );    // Car Id: 123
 
-
-
-
 car = new Car();
 console.log( car.type );   // car
 
- // creating a module
+
+
+
+/*
+*
+*
+* Programming the DOM and BOM
+*
+*/
+
+
+
+// The window Object
+
+// year = 1956; // throws error without let, but with no module, it would execute fine 
+// console.log(window.year);
+
+// console.log(window.innerWidth);
+
+// let timeoutId = setTimeout( function() {
+//     console.log('1 second has passed');
+// }, 1000);
+
+// // if need to cancel...
+// clearTimeout(timeoutId); // executes once
+
+
+
+// let intervalId = setInterval( function() {
+//     console.log('1 second has passed');
+// }, 1000);
+
+// // if need to cancel...
+// clearInterval(intervalId);
+
+
+// the location object
+console.log(location.href);
+
+// the Document Object
+
+// Selecting DOM elemenets
+console.log(document.getElementById('elementId'));
+document.getElementsByClassName('className');
+document.getElementsByTagName('tagName');
